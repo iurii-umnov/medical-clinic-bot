@@ -71,7 +71,7 @@ pip3 install asyncpg py-postgresql
 pip3 uninstall aiomysql pymysql
 ```
 3. Change prefix of DB_URL in [src/data/config.py] from "_mysql+aiomysql_" to "_postgresql+asyncpg_"
-4. Change function "_json_arrayagg_" to "_array_agg_" in [src/database/query.py] bacause PostgreSQL doesn't support "_json_arrayagg_" function and vice versa MySQL doesn't support "_array_agg_" function from SQLAlchemy.
+4. Change function "_json_arrayagg_" to "_array_agg_" in [src/db/query.py] bacause PostgreSQL doesn't support "_json_arrayagg_" function and vice versa MySQL doesn't support "_array_agg_" function from SQLAlchemy.
 
 👍 **Done!** 👍
 
@@ -89,5 +89,5 @@ pip3 uninstall aiomysql pymysql
 
   [migrations/]: <https://github.com/iurii-umnov/medical-clinic-bot/tree/master/migrations/>
   [src/data/config.py]: <https://github.com/iurii-umnov/medical-clinic-bot/blob/master/src/data/config.py>
-  [src/database/query.py]: <https://github.com/iurii-umnov/medical-clinic-bot/blob/master/src/db/query.py>
+  [src/db/query.py]: <https://github.com/iurii-umnov/medical-clinic-bot/blob/master/src/db/query.py>
   [alembic.ini]: <https://github.com/iurii-umnov/medical-clinic-bot/blob/master/alembic.ini>
