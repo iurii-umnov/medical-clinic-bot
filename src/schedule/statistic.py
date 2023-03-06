@@ -4,7 +4,7 @@ from typing import Any, Dict
 
 from src.data.config import CHAT_ID_STATISTIC
 from src.data.enums import BotMessageText, ConsultationType, Statistic
-from src.db.loader import Base
+from src.db.base import Base
 from src.db.models import Appointment, CallBack, Feedback
 from src.handlers.admin.statistic import get_statistic, timedelta
 from src.loader import bot

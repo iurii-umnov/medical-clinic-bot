@@ -5,7 +5,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
-from .loader import Base
+from .base import Base
 from src.data.enums import (
     AdminPrivilegeType, ConsultationType,
     CommunicationType, ScienceDegree, QualCategory
@@ -38,7 +38,6 @@ class Appointment(Base):
 
     id = Column(Integer(), primary_key=True)
     user_uid = Column(Integer(), ForeignKey('user_profiles.id'))
-    profile = relationship("UserProfile", back_populates="appointment")
     consultation_type = Column(Enum(ConsultationType))
     communication_type = Column(Enum(CommunicationType))
     user_request = Column(Text(), nullable=False)
@@ -46,14 +45,17 @@ class Appointment(Base):
     preferable_dt = Column(Text())
     dt = Column(DateTime(), nullable=False, server_default=func.now())
 
+    profile = relationship("UserProfile", back_populates="appointment")
+
 
 class CallBack(Base):
     __tablename__ = 'callbacks'
 
     id = Column(Integer(), primary_key=True)
     user_uid = Column(Integer(), ForeignKey('user_profiles.id'))
-    profile = relationship("UserProfile", back_populates="callback")
     dt = Column(DateTime(), nullable=False, server_default=func.now())
+
+    profile = relationship("UserProfile", back_populates="callback")
 
 
 class Feedback(Base):
@@ -61,9 +63,10 @@ class Feedback(Base):
 
     id = Column(Integer(), primary_key=True)
     user_uid = Column(Integer(), ForeignKey('user_profiles.id'))
-    profile = relationship("UserProfile", back_populates="feedback")
     message = Column(Text(), nullable=False)
     dt = Column(DateTime(), nullable=False, server_default=func.now())
+
+    profile = relationship("UserProfile", back_populates="feedback")
 
 
 class Doctor(Base):

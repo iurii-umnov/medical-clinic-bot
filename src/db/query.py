@@ -3,8 +3,8 @@ from typing import Any, List, Union
 
 import sqlalchemy as sa
 
-from .base import get_async_session
-from .loader import Base
+from .session import get_async_session
+from .base import Base
 from .models import (
     UserProfile, Appointment, CallBack,
     Feedback, Doctor, Speciality, Admin

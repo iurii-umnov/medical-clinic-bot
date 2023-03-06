@@ -12,7 +12,7 @@ from src.data.enums import (
     CallbackData, Symbols, DateFormat, Statistic,
     ConsultationType, BotMessageText
 )
-from src.db.loader import Base
+from src.db.base import Base
 from src.db.models import Appointment, CallBack, Feedback
 from src.db.query import calculate_statistic
 from src.keyboards import back_to_menu
